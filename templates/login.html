@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- Form ================================================== -->
+<div class="form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="lead">
+                {% if name %}
+                    <h2>Hello, {{ name }} .</h2>
+                {% else %}
+                    <h2>{{ message }}</h2>
+                {% endif %}
+                {% if error %}
+                    <div class="alert alert-danger">
+                        <strong>LOGIN ERROR!</strong> Invalid user. Please try again.
+                    </div>
+                {% endif %}
+                </p>
+                <form action="/login" method="post" class="form-inline">
+                    <label for="name">NAME:</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
+                    &ensp;
+                    <label for="name">PASSWORD:</label>
+                    <input type="text" class="form-control" id="name" name="passwd" placeholder="Enter password">
+                    &ensp;
+                    <button type="submit" class="btn btn-primary">LOGIN</button>
+                </form>
+                {% if submessage %}
+                    <p style="color:white">{{ submessage }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
